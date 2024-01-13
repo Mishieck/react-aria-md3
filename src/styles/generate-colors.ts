@@ -1,25 +1,67 @@
 import {
-  argbFromHex,
-  CustomColor,
-  hexFromArgb,
-  themeFromSourceColor,
-  TonalPalette
-} from '@material/material-color-utilities';
-import { MainColorTone, RefColor } from '@/types/colors';
+  CssColorTheme,
+  CssRefColorScheme,
+  CssSysColorScheme,
+  TailwindColorTheme
+} from '@/types/colors';
+import { alertCustomColors, getColorTheme } from './get-color-theme';
+import { getCssColorTheme } from './get-css-color-theme';
+import { getTailwindColorTheme } from './get-tailwind-color-theme';
 
-const tones: Array<MainColorTone> = [
-  0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100
-] as const;
+type LayerStyles = [selector: string, styles: Record<string, string>];
 
-// const generateTones = <Name extends string>(name: Name, hexColor: string, colorTones = tones): Record<RefColor<Name, (typeof colorTones)[number]>> => {
-//   return themeFromSourceColor(argbFromHex(hexColor), []);
-// }
+export const createCssBaseLayer = (styles: Array<LayerStyles>) =>
+  `@layer base {\n${styles
+    .map(
+      ([selector, styles]) =>
+        `  ${selector}{\n${Object.entries(styles)
+          .map(([property, value]) => `    ${property}: ${value};`)
+          .join('\n')}\n  }`
+    )
+    .join('\n')}\n}`;
 
-type T = CustomColor;
+export const createCssRefCode = (scheme: CssRefColorScheme) =>
+  createCssBaseLayer([[':root', scheme]]);
 
-const theme = themeFromSourceColor(argbFromHex('#6750A4'), [
-  { name: 'warning', value: argbFromHex('#00FFFF'), blend: true }
-]);
+export const createCssSysCode = (
+  dark: CssSysColorScheme,
+  light: CssSysColorScheme
+) =>
+  createCssBaseLayer([
+    [':root', light],
+    ['.dark', dark]
+  ]);
 
-const primaryHex = hexFromArgb(theme.schemes.light.primary);
-console.log(JSON.stringify(theme, null, 2), { primaryHex });
+export const createTailwindTonesCode = (record: Record<string, string>) =>
+  `{\n  ${Object.entries(record)
+    .map(([property, value]) => `    '${property}': '${value}',`)
+    .join('\n')}\n  }`;
+
+export const createTailwindCode = (theme: TailwindColorTheme) => {
+  return `module.exports = {\n${Object.entries(theme)
+    .map(
+      ([property, value]) =>
+        `  ${property}: '${
+          typeof value === 'object' ? createTailwindTonesCode(value) : value
+        }',`
+    )
+    .join('\n')}\n};`;
+};
+
+// const primaryHex = hexFromArgb(theme.schemes.light.primary);
+const theme = getColorTheme('#6750A4', alertCustomColors);
+const cssTheme = getCssColorTheme(theme);
+const cssRefCode = createCssRefCode(cssTheme.ref);
+const cssSysCode = createCssSysCode(cssTheme.sys.dark, cssTheme.sys.light);
+const tailwindTheme = getTailwindColorTheme<never>(theme);
+const tailwindCode = createTailwindCode(tailwindTheme);
+// await Bun.write('ref-tokens.css', cssRefCode);
+// await Bun.write('sys-tokens.css', cssSysCode);
+
+console.log({
+  theme,
+  // cssTheme: JSON.stringify(cssTheme, null, 2),
+  // cssRefCode,
+  // cssSysCode,
+  tailwindCode
+});

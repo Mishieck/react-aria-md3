@@ -13,6 +13,7 @@ module.exports = {
     900: '#21005D',
     95: '#FFF'
   },
+  onPrimary: '#0000FF',
   secondary: {
     10: '#FFFBFE',
     50: '#F6EDFF',
