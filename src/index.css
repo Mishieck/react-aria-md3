@@ -1,4 +1,7 @@
 /* index.css */
+@import url('./styles/ref-tokens.css');
+@import url('./styles/sys-tokens.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -41,9 +41,11 @@ export const createTailwindCode = (theme: TailwindColorTheme) => {
   return `module.exports = {\n${Object.entries(theme)
     .map(
       ([property, value]) =>
-        `  ${property}: '${
-          typeof value === 'object' ? createTailwindTonesCode(value) : value
-        }',`
+        `  '${property}': ${
+          typeof value === 'object'
+            ? createTailwindTonesCode(value)
+            : `'${value}'`
+        },`
     )
     .join('\n')}\n};`;
 };
@@ -55,8 +57,9 @@ const cssRefCode = createCssRefCode(cssTheme.ref);
 const cssSysCode = createCssSysCode(cssTheme.sys.dark, cssTheme.sys.light);
 const tailwindTheme = getTailwindColorTheme<never>(theme);
 const tailwindCode = createTailwindCode(tailwindTheme);
-// await Bun.write('ref-tokens.css', cssRefCode);
-// await Bun.write('sys-tokens.css', cssSysCode);
+await Bun.write('./src/styles/ref-tokens.css', cssRefCode);
+await Bun.write('./src/styles/sys-tokens.css', cssSysCode);
+await Bun.write('./src/styles/tailwind-color-theme.js', tailwindCode);
 
 console.log({
   theme,
