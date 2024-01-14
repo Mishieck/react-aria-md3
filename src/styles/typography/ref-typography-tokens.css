@@ -1,0 +1,9 @@
+@layer base {
+  :root{
+    --md-ref-typeface-brand: "Roboto";
+    --md-ref-typeface-plain: system-ui;
+    --md-ref-typeface-weight-bold: bold;
+    --md-ref-typeface-weight-medium: medium;
+    --md-ref-typeface-weight-regular: regular;
+  }
+}
