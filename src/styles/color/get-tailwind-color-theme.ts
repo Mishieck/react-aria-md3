@@ -42,7 +42,7 @@ export const getTailwindColorTheme = <CustomName extends string = never>(
     Object.entries(inputTheme.sys.dark).reduce(
       (theme, [name]) => ({
         ...theme,
-        [`${sysPrefix}-${name}`]: `var(---${sysPrefix}-color-${name})`
+        [`${sysPrefix}-${name}`]: `var(--${sysPrefix}-color-${name})`
       }),
       theme
     )
