@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const { fontFamily } = require('tailwindcss/defaultTheme');
-const colors = require('./src/styles/tailwind-color-theme');
+const colors = require('./src/styles/color/tailwind-color-theme');
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],

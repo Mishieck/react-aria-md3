@@ -1,6 +1,6 @@
 /* index.css */
-@import url('./styles/ref-color-tokens.css');
-@import url('./styles/sys-color-tokens.css');
+@import url('./styles/color/ref-color-tokens.css');
+@import url('./styles/color/sys-color-tokens.css');
 
 @tailwind base;
 @tailwind components;
