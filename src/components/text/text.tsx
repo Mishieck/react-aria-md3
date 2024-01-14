@@ -145,6 +145,7 @@ export const Text: React.FC<TextProps> = props => {
     scale = 'body',
     size = 'medium',
     element = 'p',
+    children,
     ...htmlProps
   } = props;
 
@@ -153,5 +154,5 @@ export const Text: React.FC<TextProps> = props => {
     style: createCssStyles(scale, size)
   };
 
-  return elements(element, elementProps);
+  return elements(element, elementProps, children);
 };
