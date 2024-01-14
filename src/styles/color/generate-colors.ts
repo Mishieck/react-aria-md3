@@ -1,24 +1,14 @@
 import {
-  CssColorTheme,
   CssRefColorScheme,
   CssSysColorScheme,
   TailwindColorTheme
 } from '@/types/colors';
+
 import { alertCustomColors, getColorTheme } from './get-color-theme';
 import { getCssColorTheme } from './get-css-color-theme';
 import { getTailwindColorTheme } from './get-tailwind-color-theme';
-
-type LayerStyles = [selector: string, styles: Record<string, string>];
-
-export const createCssBaseLayer = (styles: Array<LayerStyles>) =>
-  `@layer base {\n${styles
-    .map(
-      ([selector, styles]) =>
-        `  ${selector}{\n${Object.entries(styles)
-          .map(([property, value]) => `    ${property}: ${value};`)
-          .join('\n')}\n  }`
-    )
-    .join('\n')}\n}`;
+import { createCssBaseLayer } from '../css/generate-css-code';
+import { writeFile } from '../code/write-code';
 
 export const createCssRefCode = (scheme: CssRefColorScheme) =>
   createCssBaseLayer([[':root', scheme]]);
@@ -57,14 +47,16 @@ const cssRefCode = createCssRefCode(cssTheme.ref);
 const cssSysCode = createCssSysCode(cssTheme.sys.dark, cssTheme.sys.light);
 const tailwindTheme = getTailwindColorTheme<never>(theme);
 const tailwindCode = createTailwindCode(tailwindTheme);
-await Bun.write('./src/styles/ref-color-tokens.css', cssRefCode);
-await Bun.write('./src/styles/sys-color-tokens.css', cssSysCode);
-await Bun.write('./src/styles/tailwind-color-theme.js', tailwindCode);
+const write = writeFile(__dirname);
 
-console.log({
-  theme,
-  // cssTheme: JSON.stringify(cssTheme, null, 2),
-  // cssRefCode,
-  // cssSysCode,
-  tailwindCode
-});
+await write('ref-color-tokens.css', cssRefCode);
+await write('sys-color-tokens.css', cssSysCode);
+await write('tailwind-color-theme.js', tailwindCode);
+
+// console.log({
+//   theme,
+//   cssTheme: JSON.stringify(cssTheme, null, 2),
+//   cssRefCode,
+//   cssSysCode,
+//   tailwindCode
+// });
