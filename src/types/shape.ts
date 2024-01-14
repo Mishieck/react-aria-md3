@@ -1,1 +1,1 @@
-export type ContainerShape = 'sharp' | 'pill' | 'rounded' | 'square';
+export type ContainerShape = 'sharp' | 'pill' | 'rounded';
