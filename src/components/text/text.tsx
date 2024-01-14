@@ -22,6 +22,9 @@ export type TextProps = HtmlProps & {
   children?: React.ReactNode;
 };
 
+export type ScaleTextProps = Omit<TextProps, 'scale'>;
+export type ScaleText = React.FC<ScaleTextProps>;
+
 const typoVar = (
   scale: TypographyScale,
   size: SizeLong,
@@ -156,3 +159,16 @@ export const Text: React.FC<TextProps> = props => {
 
   return elements(element, elementProps, children);
 };
+
+export const TextBody: ScaleText = props => <Text scale="body" {...props} />;
+
+export const TextDisplay: ScaleText = props => (
+  <Text scale="display" {...props} />
+);
+
+export const TextHeadline: ScaleText = props => (
+  <Text scale="headline" {...props} />
+);
+
+export const TextLabel: ScaleText = props => <Text scale="label" {...props} />;
+export const TextTitle: ScaleText = props => <Text scale="title" {...props} />;
