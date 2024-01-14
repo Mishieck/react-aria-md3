@@ -57,8 +57,8 @@ const cssRefCode = createCssRefCode(cssTheme.ref);
 const cssSysCode = createCssSysCode(cssTheme.sys.dark, cssTheme.sys.light);
 const tailwindTheme = getTailwindColorTheme<never>(theme);
 const tailwindCode = createTailwindCode(tailwindTheme);
-await Bun.write('./src/styles/ref-tokens.css', cssRefCode);
-await Bun.write('./src/styles/sys-tokens.css', cssSysCode);
+await Bun.write('./src/styles/ref-color-tokens.css', cssRefCode);
+await Bun.write('./src/styles/sys-color-tokens.css', cssSysCode);
 await Bun.write('./src/styles/tailwind-color-theme.js', tailwindCode);
 
 console.log({
