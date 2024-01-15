@@ -1,5 +1,4 @@
-import { ColorTheme, SysColorName, TailwindColorTheme } from '@/types/colors';
-import { mainTones } from './get-color-theme';
+import { ColorTheme, TailwindColorTheme } from '@/types/colors';
 
 const refPrefix = 'md-ref';
 const sysPrefix = 'md-sys';
@@ -23,16 +22,16 @@ export const getTailwindColorTheme = <CustomName extends string = never>(
 ) => {
   const { black, white, ...mainTones } = inputTheme.ref;
 
-  const sysNames = Object.keys(inputTheme.sys.dark) as Array<
-    SysColorName<CustomName>
-  >;
-
   const theme: Partial<TailwindColorTheme<CustomName>> = Object.entries(
     mainTones
   ).reduce(
     (theme, [name, value]) => ({
       ...theme,
-      [`${refPrefix}-${name}`]: getTailwindColorRecord(refPrefix, name, value)
+      [`${refPrefix}-color-${name}`]: getTailwindColorRecord(
+        refPrefix,
+        name,
+        value
+      )
     }),
     {}
   );
@@ -42,7 +41,7 @@ export const getTailwindColorTheme = <CustomName extends string = never>(
     Object.entries(inputTheme.sys.dark).reduce(
       (theme, [name]) => ({
         ...theme,
-        [`${sysPrefix}-${name}`]: `var(--${sysPrefix}-color-${name})`
+        [`${sysPrefix}-color-${name}`]: `var(--${sysPrefix}-color-${name})`
       }),
       theme
     )
