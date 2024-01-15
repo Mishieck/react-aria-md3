@@ -26,11 +26,11 @@ const iconVariantProps = cva<IconVariantProps>('material-icons ', {
       sharp: 'material-icons-sharp'
     },
     size: {
-      xl: 'text-[40px]',
-      lg: 'text-[32px]',
-      md: 'text-[24px]',
-      sm: 'text-[16px]',
-      xs: 'text-[12px]'
+      xl: '!text-[40px]',
+      lg: '!text-[32px]',
+      md: '!text-[24px]',
+      sm: '!text-[16px]',
+      xs: '!text-[12px]'
     }
   },
   defaultVariants: {
