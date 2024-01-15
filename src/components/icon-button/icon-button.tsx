@@ -60,8 +60,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 
     return (
       <RacButton
-        className={cls('', buttonVariants({ container, shape, className }))}
         ref={ref}
+        className={cls('', buttonVariants({ container, shape, className }))}
         {...rest}
       >
         <Either displayFirst={hasNamedIcon}>
@@ -72,3 +72,5 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     );
   }
 );
+
+IconButton.displayName = 'IconButton';
