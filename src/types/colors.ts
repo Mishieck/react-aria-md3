@@ -100,13 +100,18 @@ export type SysPrefix<Value extends string> = `${MdPrefix<'sys'>}-${Value}`;
 
 export type TailwindColorTheme<CustomName extends string = never> = Record<
   RefPrefix<
-    RefColorMainName | RefColorAlertName | RefColorExtraName | CustomName
+    ColorPrefix<
+      RefColorMainName | RefColorAlertName | RefColorExtraName | CustomName
+    >
   >,
   RefColorTones<RefMainColorTone>
 > &
-  Record<RefPrefix<RefColorNeutralName>, RefColorTones<RefNeutralColorTone>> &
-  Record<RefPrefix<RefColorNamedName>, string> &
-  Record<SysPrefix<SysColorName<CustomName>>, string>;
+  Record<
+    RefPrefix<ColorPrefix<RefColorNeutralName>>,
+    RefColorTones<RefNeutralColorTone>
+  > &
+  Record<RefPrefix<ColorPrefix<RefColorNamedName>>, string> &
+  Record<SysPrefix<ColorPrefix<SysColorName<CustomName>>>, string>;
 
 export type CssVariablePrefix<Name extends string> = `--${Name}`;
 
