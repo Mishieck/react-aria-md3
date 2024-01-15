@@ -1,9 +1,12 @@
 import { ContainerShape } from '@/types/shape';
 import { ContainerVariant } from '@/types/container';
-import { Button as RacButton } from 'react-aria-components';
-import { Maybe } from '../logical/Maybe';
+import {
+  Button as RacButton,
+  type ButtonProps as RacButtonProps
+} from 'react-aria-components';
 import { VariantProps, cva } from 'class-variance-authority';
 import { cls } from '@/utils/cls';
+import React from 'react';
 
 type ButtonVariantProps = {
   container: Record<ContainerVariant, string>;
@@ -37,32 +40,35 @@ const buttonVariants = cva<ButtonVariantProps>(
   }
 );
 
-export type ButtonProps = Partial<{
-  container?: ContainerVariant;
-  shape?: ContainerShape;
-  children?: React.ReactNode;
-  className?: string;
-  hasIcon?: boolean;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}> &
+export type ButtonProps = RacButtonProps &
+  Partial<{
+    container?: ContainerVariant;
+    shape?: ContainerShape;
+    hasIcon?: boolean;
+  }> &
   VariantProps<typeof buttonVariants>;
 
-export const Button: React.FC<ButtonProps> = props => {
-  const {
-    container,
-    shape,
-    children,
-    hasIcon = false,
-    onClick,
-    className,
-    ...rest
-  } = props;
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    const {
+      container,
+      shape,
+      children,
+      hasIcon = false,
+      className,
+      ...rest
+    } = props;
 
-  return (
-    <RacButton
-      className={cls('', buttonVariants({ container, shape, className }))}
-    >
-      {children}
-    </RacButton>
-  );
-};
+    return (
+      <RacButton
+        ref={ref}
+        className={cls('', buttonVariants({ container, shape, className }))}
+        {...rest}
+      >
+        {children}
+      </RacButton>
+    );
+  }
+);
+
+Button.displayName = 'Button';
