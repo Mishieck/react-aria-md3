@@ -1,7 +1,8 @@
+import { MdIconName } from '@/types/material-icons';
 import { SizeShort } from '@/types/size';
 
 export type IconProps = {
-  name: string;
+  name: MdIconName;
   filled?: boolean;
   size?: SizeShort;
   className?: string;
