@@ -14,9 +14,9 @@ export const cssVar = (value: string) => `var(--${value})`;
 export const getRefTypographyTokens = (): RefTypographyTokens => ({
   'md-ref-typeface-brand': `"Roboto"`,
   'md-ref-typeface-plain': 'system-ui',
-  'md-ref-typeface-weight-bold': 'bold',
-  'md-ref-typeface-weight-medium': 'medium',
-  'md-ref-typeface-weight-regular': 'regular'
+  'md-ref-typeface-weight-bold': '700',
+  'md-ref-typeface-weight-medium': '500',
+  'md-ref-typeface-weight-regular': '400'
 });
 
 export const getSysTypographyTokens = (): SysTypographyTokens => {
