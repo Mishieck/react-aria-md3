@@ -14,7 +14,7 @@ type ButtonVariantProps = {
 };
 
 const buttonVariants = cva<ButtonVariantProps>(
-  `px-6 py-2.5 flex items-center gap-x-2`,
+  `px-6 py-2.5 inline-flex items-center gap-x-2`,
   {
     variants: {
       container: {
