@@ -5,7 +5,7 @@ import { Text } from './text';
 const meta = {
   title: 'Text',
   component: Text,
-  tags: [],
+  tags: ['autodocs'],
   argTypes: {},
   decorators: [StoryDecorator]
 } satisfies Meta<typeof Text>;

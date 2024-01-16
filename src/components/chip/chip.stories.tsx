@@ -5,7 +5,7 @@ import { Chip } from './chip';
 const meta = {
   title: 'UI/Chip',
   component: Chip,
-  tags: ['auto'],
+  tags: ['autodocs'],
   argTypes: {},
   decorators: [StoryDecorator]
 } satisfies Meta<typeof Chip>;

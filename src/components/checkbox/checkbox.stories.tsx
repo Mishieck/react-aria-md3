@@ -5,7 +5,7 @@ import { Checkbox } from './checkbox';
 const meta = {
   title: 'UI/Checkbox',
   component: Checkbox,
-  tags: ['auto'],
+  tags: ['autodocs'],
   argTypes: {},
   decorators: [StoryDecorator]
 } satisfies Meta<typeof Checkbox>;

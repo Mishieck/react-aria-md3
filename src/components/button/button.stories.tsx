@@ -6,7 +6,7 @@ import { Icon } from '../icon/icon';
 const meta = {
   title: 'UI/Button',
   component: Button,
-  tags: [],
+  tags: ['autodocs'],
   argTypes: {},
   decorators: [StoryProvider]
 } satisfies Meta<typeof Button>;
