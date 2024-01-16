@@ -3,7 +3,7 @@ import StoryDecorator from '@/providers/story';
 import { Checkbox } from './checkbox';
 
 const meta = {
-  title: 'Checkbox',
+  title: 'UI/Checkbox',
   component: Checkbox,
   tags: ['auto'],
   argTypes: {},

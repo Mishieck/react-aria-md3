@@ -4,7 +4,7 @@ import { Button } from './button';
 import { Icon } from '../icon/icon';
 
 const meta = {
-  title: 'Button',
+  title: 'UI/Button',
   component: Button,
   tags: [],
   argTypes: {},

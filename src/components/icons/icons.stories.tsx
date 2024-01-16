@@ -3,7 +3,7 @@ import StoryDecorator from '@/providers/story';
 import { Icons } from './icons';
 
 const meta = {
-  title: 'Icons',
+  title: 'Assets/Icons',
   component: Icons,
   tags: [],
   argTypes: {},

@@ -3,7 +3,7 @@ import StoryDecorator from '@/providers/story';
 import { Chip } from './chip';
 
 const meta = {
-  title: 'Chip',
+  title: 'UI/Chip',
   component: Chip,
   tags: ['auto'],
   argTypes: {},

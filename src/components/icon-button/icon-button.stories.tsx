@@ -4,7 +4,7 @@ import { IconButton } from './icon-button';
 import { Icon } from '../icon/icon';
 
 const meta = {
-  title: 'IconButton',
+  title: 'UI/IconButton',
   component: IconButton,
   tags: [],
   argTypes: {},
