@@ -3,6 +3,7 @@
 @import url('./styles/color/sys-color-tokens.css');
 @import url('./styles/typography/ref-typography-tokens.css');
 @import url('./styles/typography/sys-typography-tokens.css');
+@import url('./styles/state/sys-state-tokens.css');
 
 @tailwind base;
 @tailwind components;
