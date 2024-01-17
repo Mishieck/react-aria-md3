@@ -1,0 +1,8 @@
+@layer base {
+  :root{
+    --md-sys-state-dragged-layer-opacity: 0.16;
+    --md-sys-state-focus-layer-opacity: 0.12;
+    --md-sys-state-hover-layer-opacity: 0.08;
+    --md-sys-state-pressed-layer-opacity: 0.12;
+  }
+}
