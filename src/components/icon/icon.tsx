@@ -19,7 +19,7 @@ export type IconVariantProps = {
   size: Record<SizeShort, string>;
 };
 
-export const iconSizes: IconVariantProps['size'] = {
+export const iconSizeStyles: IconVariantProps['size'] = {
   xl: '!text-[40px]',
   lg: '!text-[32px]',
   md: '!text-[24px]',
@@ -34,7 +34,7 @@ const iconVariantProps = cva<IconVariantProps>('', {
       outlined: 'material-icons-outlined',
       sharp: 'material-icons-sharp'
     },
-    size: iconSizes
+    size: iconSizeStyles
   },
   defaultVariants: {
     style: 'outlined',
