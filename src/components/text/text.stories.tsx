@@ -3,7 +3,7 @@ import StoryDecorator from '@/providers/story';
 import { Text } from './text';
 
 const meta = {
-  title: 'Text',
+  title: 'UI/Text',
   component: Text,
   tags: ['autodocs'],
   argTypes: {},
