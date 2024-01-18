@@ -4,6 +4,7 @@ import {
 } from '@/styles/typography/get-typography-theme';
 import { SizeLong } from '@/types/size';
 import { TypographyProperty, TypographyScale } from '@/types/typography';
+import React from 'react';
 
 type HtmlProps = React.HtmlHTMLAttributes<HTMLElement>;
 
@@ -142,19 +143,26 @@ const elements = (
   return elements[element];
 };
 
-export const Text: React.FC<TextProps> = props => {
-  const {
-    scale = 'body',
-    size = 'medium',
-    element = 'p',
-    children,
-    ...htmlProps
-  } = props;
+export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
+  (props, ref) => {
+    const {
+      scale = 'body',
+      size = 'medium',
+      element = 'p',
+      children,
+      ...htmlProps
+    } = props;
 
-  const elementProps: React.HtmlHTMLAttributes<HTMLElement> = {
-    ...htmlProps,
-    style: createCssStyles(scale, size)
-  };
+    const elementProps: React.HtmlHTMLAttributes<HTMLElement> & {
+      ref?: React.Ref<HTMLSpanElement>;
+    } = {
+      ...htmlProps,
+      ref,
+      style: createCssStyles(scale, size)
+    };
 
-  return elements(element, elementProps, children);
-};
+    return elements(element, elementProps, children);
+  }
+);
+
+Text.displayName = 'Text';
