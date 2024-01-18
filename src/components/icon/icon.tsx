@@ -7,9 +7,10 @@ import React from 'react';
 export type IconStyle = 'filled' | 'outlined' | 'sharp';
 
 export type IconProps = {
-  name: MdIconName;
+  name?: MdIconName;
   style?: IconStyle;
   size?: SizeShort;
+  children?: React.ReactNode;
   className?: string;
 };
 
@@ -18,7 +19,7 @@ export type IconVariantProps = {
   size: Record<SizeShort, string>;
 };
 
-const iconVariantProps = cva<IconVariantProps>('material-icons ', {
+const iconVariantProps = cva<IconVariantProps>('', {
   variants: {
     style: {
       filled: 'material-icons-filled',
@@ -41,15 +42,18 @@ const iconVariantProps = cva<IconVariantProps>('material-icons ', {
 
 export const Icon = React.forwardRef<HTMLSpanElement, IconProps>(
   (props, ref) => {
-    const { name, style, size, className } = props;
+    const { name, children, style, size, className } = props;
+    const isNamed = !!name;
 
     return (
       <span
         ref={ref}
         slot="icon"
-        className={cls(iconVariantProps({ style, size, className }))}
+        className={cls(iconVariantProps({ style, size, className }), {
+          'material-icons': isNamed
+        })}
       >
-        {name}
+        {name ?? children}
       </span>
     );
   }
