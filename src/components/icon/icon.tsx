@@ -23,7 +23,7 @@ export const iconSizeStyles: IconVariantProps['size'] = {
   xl: '!text-[40px]',
   lg: '!text-[32px]',
   md: '!text-[24px]',
-  sm: '!text-[16px]',
+  sm: '!text-[18px]',
   xs: '!text-[12px]'
 };
 
