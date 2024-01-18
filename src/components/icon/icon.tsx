@@ -19,6 +19,14 @@ export type IconVariantProps = {
   size: Record<SizeShort, string>;
 };
 
+export const iconSizes: IconVariantProps['size'] = {
+  xl: '!text-[40px]',
+  lg: '!text-[32px]',
+  md: '!text-[24px]',
+  sm: '!text-[16px]',
+  xs: '!text-[12px]'
+};
+
 const iconVariantProps = cva<IconVariantProps>('', {
   variants: {
     style: {
@@ -26,13 +34,7 @@ const iconVariantProps = cva<IconVariantProps>('', {
       outlined: 'material-icons-outlined',
       sharp: 'material-icons-sharp'
     },
-    size: {
-      xl: '!text-[40px]',
-      lg: '!text-[32px]',
-      md: '!text-[24px]',
-      sm: '!text-[16px]',
-      xs: '!text-[12px]'
-    }
+    size: iconSizes
   },
   defaultVariants: {
     style: 'outlined',
