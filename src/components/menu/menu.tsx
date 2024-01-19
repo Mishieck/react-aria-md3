@@ -4,7 +4,8 @@ import {
   Menu as RacMenu,
   type MenuProps as RacMenuProps,
   MenuItem as RacMenuItem,
-  type MenuItemProps as RacMenuItemProps
+  type MenuItemProps as RacMenuItemProps,
+  Modal
 } from 'react-aria-components';
 import {
   ListItemAvatar,
@@ -35,14 +36,16 @@ export type MenuItemTrailingSupportingTextProps =
 export const Menu = React.forwardRef<HTMLDivElement, MenuProps>(
   ({ className, ...props }, ref) => {
     return (
-      <RacMenu
-        ref={ref}
-        className={cls(
-          'rounded-[4px] overflow-hidden bg-md-sys-color-surface-container',
-          className
-        )}
-        {...props}
-      ></RacMenu>
+      <Modal>
+        <RacMenu
+          ref={ref}
+          className={cls(
+            `rounded-[4px] overflow-hidden bg-md-sys-color-surface-container`,
+            className
+          )}
+          {...props}
+        ></RacMenu>
+      </Modal>
     );
   }
 );
