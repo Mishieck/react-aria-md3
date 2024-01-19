@@ -54,18 +54,14 @@ export const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
     return (
       <RacMenuItem
         ref={ref}
-        className={({ isSelected }) =>
-          cls(
-            `
-              text-md-sys-color-on-surface-container
-            `,
-            {
-              'bg-md-sys-color-surface-container': !isSelected,
-              'bg-md-sys-color-secondary-container': isSelected
-            },
-            className
-          )
-        }
+        className={cls(
+          `
+            bg-md-sys-color-surface-container
+            rac-selected:bg-md-sys-color-secondary-container
+            text-md-sys-color-on-surface-container
+          `,
+          className
+        )}
         {...props}
       ></RacMenuItem>
     );
