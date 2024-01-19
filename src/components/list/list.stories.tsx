@@ -3,8 +3,10 @@ import StoryDecorator from '@/providers/story';
 import {
   List,
   ListItem,
+  ListItemAvatar,
   ListItemHeadline,
   ListItemIcon,
+  ListItemImage,
   ListItemLabel,
   ListItemSupportingText,
   ListItemTrailingSupportingText
@@ -79,6 +81,40 @@ export const TrailingSupportingText: Story = {
               </ListItemSupportingText>
             </div>
             <ListItemTrailingSupportingText>TST</ListItemTrailingSupportingText>
+          </ListItem>
+        )}
+      </ForEach>
+    )
+  }
+};
+
+export const Avatar: Story = {
+  args: {
+    children: (
+      <ForEach data={[1, 2, 3]}>
+        {num => (
+          <ListItem className="px-4 py-2 flex items-center gap-4">
+            <ListItemAvatar>
+              <img src="src/assets/images/avatar.jpg" alt="Avatar" />
+            </ListItemAvatar>
+            <span>Avatar {num}</span>
+          </ListItem>
+        )}
+      </ForEach>
+    )
+  }
+};
+
+export const Image: Story = {
+  args: {
+    children: (
+      <ForEach data={[1, 2, 3]}>
+        {num => (
+          <ListItem className="px-4 py-2 flex items-center gap-4">
+            <ListItemImage>
+              <img src="src/assets/images/avatar.jpg" alt="Image" />
+            </ListItemImage>
+            <span>Image {num}</span>
           </ListItem>
         )}
       </ForEach>
