@@ -162,6 +162,7 @@ export const ListItemAvatar = React.forwardRef<
       className={cls(
         `
           rounded-full 
+          overflow-hidden
           w-[40px] aspect-square 
           bg-md-sys-color-primary-container 
           text-md-sys-color-on-primary-container
