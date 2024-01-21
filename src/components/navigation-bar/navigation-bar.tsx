@@ -24,10 +24,9 @@ export const NavigationBar = React.forwardRef<
       ref={ref}
       className={cls(
         `
-            border-b
-            flex justify-between items-end
-            scroll-smooth
-          `,
+          flex justify-between items-end
+          scroll-smooth
+        `,
         className
       )}
       style={{ scrollbarWidth: 'none' }}
