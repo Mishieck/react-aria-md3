@@ -20,15 +20,19 @@ const links: Array<NavigationLink> = [
 
 const NavigationBarStory: React.FC<NavigationBarProps> = props => {
   return (
-    <Tabs>
-      <NavigationBar {...props} />
+    <Tabs className="h-screen flex flex-col">
       <ForEach data={links}>
         {({ label }) => (
-          <TabPanel key={label} id={label}>
-            <h1 className="text-9xl font-bold">{label}</h1>
+          <TabPanel
+            key={label}
+            id={label}
+            className="p-8 flex-1 grid place-items-center"
+          >
+            <h1 className="text-7xl font-bold">{label}</h1>
           </TabPanel>
         )}
       </ForEach>
+      <NavigationBar {...props} />
     </Tabs>
   );
 };
@@ -47,7 +51,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: links.map(({ icon, label }) => (
-      <NavigationBarLink key={label} id={label} label={label}>
+      <NavigationBarLink key={label} id={label} label={label} preventDefault>
         {({ isSelected }) => (
           <Icon name={icon} style={isSelected ? 'filled' : 'outlined'} />
         )}
