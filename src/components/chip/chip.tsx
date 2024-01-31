@@ -1,10 +1,10 @@
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 import { cva } from 'class-variance-authority';
 import React from 'react';
 import { Maybe } from '../logical/Maybe';
 import { Either } from '../logical/Either';
-import { ContainerShape } from '@/types/shape';
-import { MdIconName } from '@/types/material-icons';
+import { ContainerShape } from '../../types/shape';
+import { MdIconName } from '../../types/material-icons';
 import { Icon } from '../icon/icon';
 
 export type ChipRole = 'assist' | 'filter' | 'input' | 'suggestion';

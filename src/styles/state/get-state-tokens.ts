@@ -4,7 +4,7 @@ import {
   SysStateLayerOpacitySuffix,
   SysStateTokens,
   SysStateLayerOpacityValues
-} from '@/types/state';
+} from '../../types/state';
 
 export const sysStateLayerOpacityValues: SysStateLayerOpacityValues = {
   dragged: 0.16,

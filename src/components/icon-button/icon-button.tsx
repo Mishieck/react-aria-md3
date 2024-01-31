@@ -1,13 +1,13 @@
-import { ContainerShape } from '@/types/shape';
-import { ContainerVariant } from '@/types/container';
+import { ContainerShape } from '../../types/shape';
+import { ContainerVariant } from '../../types/container';
 import {
   Button as RacButton,
   type ButtonProps as RacButtonProps
 } from 'react-aria-components';
 import { VariantProps, cva } from 'class-variance-authority';
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 import React from 'react';
-import { MdIconName } from '@/types/material-icons';
+import { MdIconName } from '../../types/material-icons';
 import { Icon } from '../icon/icon';
 import { Either } from '../logical/Either';
 

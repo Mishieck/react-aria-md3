@@ -2,7 +2,7 @@ import {
   RefTypographyTokens,
   SysTypographyTokens,
   TypographyTheme
-} from '@/types/typography';
+} from '../../types/typography';
 
 export const refTypefacePrefix = (value: string) => `md-ref-typeface-${value}`;
 

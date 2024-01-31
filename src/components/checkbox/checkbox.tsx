@@ -5,7 +5,7 @@ import {
   type CheckboxProps as RacCheckboxProps
 } from 'react-aria-components';
 import { Icon } from '../icon/icon';
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 import { Either } from '../logical/Either';
 import { cva } from 'class-variance-authority';
 import { Maybe } from '../logical/Maybe';

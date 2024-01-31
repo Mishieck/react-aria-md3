@@ -1,6 +1,6 @@
-import { MdIconName } from '@/types/material-icons';
-import { SizeShort } from '@/types/size';
-import { cls } from '@/utils/cls';
+import { MdIconName } from '../../types/material-icons';
+import { SizeShort } from '../../types/size';
+import { cls } from '../../utils/cls';
 import { cva } from 'class-variance-authority';
 import React from 'react';
 

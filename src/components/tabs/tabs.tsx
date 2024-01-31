@@ -10,7 +10,7 @@ import {
   type TabPanelProps as RacTabPanelProps
 } from 'react-aria-components';
 import { Icon, IconProps } from '../icon/icon';
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 import { Maybe } from '../logical/Maybe';
 
 export type TabsProps = RacTabsProps;

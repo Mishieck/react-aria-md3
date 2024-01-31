@@ -2,7 +2,7 @@ import {
   CssRefColorScheme,
   CssSysColorScheme,
   TailwindColorTheme
-} from '@/types/colors';
+} from '../../types/colors';
 
 import { alertCustomColors, getColorTheme } from './get-color-theme';
 import { getCssColorTheme } from './get-css-color-theme';

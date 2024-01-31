@@ -1,4 +1,4 @@
-import { ColorTheme, TailwindColorTheme } from '@/types/colors';
+import { ColorTheme, TailwindColorTheme } from '../../types/colors';
 
 const refPrefix = 'md-ref';
 const sysPrefix = 'md-sys';

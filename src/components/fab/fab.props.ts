@@ -1,5 +1,5 @@
 import { cva } from 'class-variance-authority';
-import { SizeLong, SizeShort } from '@/types/size';
+import { SizeLong, SizeShort } from '../../types/size';
 import React from 'react';
 import { ButtonProps } from 'react-aria-components';
 import { ElevationLevel } from '../elevation/elevation';

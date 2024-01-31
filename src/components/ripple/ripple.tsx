@@ -1,4 +1,4 @@
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 import React from 'react';
 
 export type RippleProps = React.HTMLAttributes<HTMLDivElement> &

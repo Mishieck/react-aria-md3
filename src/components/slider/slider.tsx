@@ -9,7 +9,7 @@ import {
   SliderTrack
 } from 'react-aria-components';
 import { Icon, IconProps } from '../icon/icon';
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 
 export type SliderPoint = Partial<{
   value: number;

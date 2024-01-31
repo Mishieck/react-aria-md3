@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, ButtonProps } from 'react-aria-components';
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 import { Maybe } from '../logical/Maybe';
 import { Either } from '../logical/Either';
 import { Text, TextProps } from '../text/text';

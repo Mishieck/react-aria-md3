@@ -1,9 +1,9 @@
 import {
   cssVar,
   sysTypescalePrefix
-} from '@/styles/typography/get-typography-theme';
-import { SizeLong } from '@/types/size';
-import { TypographyProperty, TypographyScale } from '@/types/typography';
+} from '../../styles/typography/get-typography-theme';
+import { SizeLong } from '../../types/size';
+import { TypographyProperty, TypographyScale } from '../../types/typography';
 import React from 'react';
 
 type HtmlProps = React.HtmlHTMLAttributes<HTMLElement>;

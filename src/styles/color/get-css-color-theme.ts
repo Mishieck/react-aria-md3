@@ -7,7 +7,7 @@ import {
   RefColorScheme,
   RefColorTones,
   SysColorScheme
-} from '@/types/colors';
+} from '../../types/colors';
 
 const refPrefix = '--md-ref-color';
 const sysPrefix = '--md-sys-color';

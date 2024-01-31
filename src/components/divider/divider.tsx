@@ -1,4 +1,4 @@
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 import { cva } from 'class-variance-authority';
 import React from 'react';
 

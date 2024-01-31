@@ -1,4 +1,4 @@
-import { MdIconName } from '@/types/material-icons';
+import { MdIconName } from '../../types/material-icons';
 
 export const icons: Array<MdIconName> = [
   '10k',

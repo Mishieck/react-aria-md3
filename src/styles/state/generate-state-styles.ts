@@ -1,4 +1,4 @@
-import { SysStateTokens } from '@/types/state';
+import { SysStateTokens } from '../../types/state';
 import { createCssBaseLayer } from '../css/generate-css-code';
 import { writeFile } from '../code/write-code';
 import { getSysStateTokens } from './get-state-tokens';

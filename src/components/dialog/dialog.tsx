@@ -5,7 +5,7 @@ import {
   type DialogProps as RacDialogProps
 } from 'react-aria-components';
 import { Button, ButtonProps } from '../button/button';
-import { cls } from '@/utils/cls';
+import { cls } from '../../utils/cls';
 
 export type DialogProps = RacDialogProps;
 export type DialogHeadlineProps = React.HTMLAttributes<HTMLDivElement>;

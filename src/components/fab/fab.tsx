@@ -1,5 +1,5 @@
-import { SizeLong } from '@/types/size';
-import { cls } from '@/utils/cls';
+import { SizeLong } from '../../types/size';
+import { cls } from '../../utils/cls';
 import React, { forwardRef } from 'react';
 import { Button } from 'react-aria-components';
 import { Ripple } from '../ripple/ripple';
