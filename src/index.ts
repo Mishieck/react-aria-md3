@@ -27,4 +27,11 @@ export * from './components/switch/switch';
 export * from './components/tabs/tabs';
 export * from './components/text/text';
 export * from './components/top-app-bar/top-app-bar';
-export * from './utils/tailwind';
+export * from './types/colors';
+export * from './types/container';
+export * from './types/material-icons';
+export * from './types/shape;
+export * from './types/size';
+export * from './types/state';
+export * from './types/typography';
+
