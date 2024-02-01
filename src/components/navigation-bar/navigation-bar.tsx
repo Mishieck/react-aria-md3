@@ -93,7 +93,7 @@ export const NavigationBarLink = React.forwardRef<
                 </div>
               </Maybe>
             </div>
-            <span className="text-xs text-neutral-900 dark:text-neutral-100 leading-tight tracking-[.0416em]">
+            <span className="text-xs text-md-sys-color-on-background leading-tight tracking-[.0416em]">
               {label}
             </span>
           </a>
