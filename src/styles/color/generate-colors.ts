@@ -19,7 +19,8 @@ export const createCssSysCode = (
 ) =>
   createCssBaseLayer([
     [':root', light],
-    ['.dark', dark]
+    ['.dark', dark],
+    ['@media (prefers-color-scheme: dark)', dark]
   ]);
 
 export const createTailwindTonesCode = (record: Record<string, string>) =>
