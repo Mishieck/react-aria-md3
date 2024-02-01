@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   'md-ref-color-primary': {
       '0': 'var(--md-ref-color-primary-0)',
     '10': 'var(--md-ref-color-primary-10)',

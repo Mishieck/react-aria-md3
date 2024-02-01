@@ -27,7 +27,6 @@ export * from './components/switch/switch';
 export * from './components/tabs/tabs';
 export * from './components/text/text';
 export * from './components/top-app-bar/top-app-bar';
-export * from './utils/tailwind';
 export * from './utils/cls';
 export * from './types/colors';
 export * from './types/container';

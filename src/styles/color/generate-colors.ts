@@ -28,7 +28,7 @@ export const createTailwindTonesCode = (record: Record<string, string>) =>
     .join('\n')}\n  }`;
 
 export const createTailwindCode = (theme: TailwindColorTheme) => {
-  return `export default {\n${Object.entries(theme)
+  return `module.exports = {\n${Object.entries(theme)
     .map(
       ([property, value]) =>
         `  '${property}': ${
@@ -51,7 +51,7 @@ const write = writeFile(__dirname);
 
 await write('ref-color-tokens.css', cssRefCode);
 await write('sys-color-tokens.css', cssSysCode);
-await write('tailwind-color-theme.ts', tailwindCode);
+await write('tailwind-color-theme.js', tailwindCode);
 
 // console.log({
 //   theme,
