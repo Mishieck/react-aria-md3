@@ -85,7 +85,10 @@
     --md-sys-color-success-container: #00522c;
     --md-sys-color-on-success-container: #5affa2;
   }
-  @media (prefers-color-scheme: dark){
+}
+@media (prefers-color-scheme: dark) { 
+  @layer base {
+  :root{
     --md-sys-color-primary: #cfbcff;
     --md-sys-color-on-primary: #381e72;
     --md-sys-color-primary-container: #4f378a;
@@ -128,4 +131,6 @@
     --md-sys-color-success-container: #00522c;
     --md-sys-color-on-success-container: #5affa2;
   }
+}
+
 }

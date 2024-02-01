@@ -19,8 +19,7 @@ export const createCssSysCode = (
 ) =>
   createCssBaseLayer([
     [':root', light],
-    ['.dark', dark],
-    ['@media (prefers-color-scheme: dark)', dark]
+    ['.dark', dark]
   ]);
 
 export const createTailwindTonesCode = (record: Record<string, string>) =>
@@ -45,7 +44,15 @@ export const createTailwindCode = (theme: TailwindColorTheme) => {
 const theme = getColorTheme('#6750A4', alertCustomColors);
 const cssTheme = getCssColorTheme(theme);
 const cssRefCode = createCssRefCode(cssTheme.ref);
-const cssSysCode = createCssSysCode(cssTheme.sys.dark, cssTheme.sys.light);
+
+const cssColorSchemeCode = `@media (prefers-color-scheme: dark) { 
+  ${createCssBaseLayer([[':root', cssTheme.sys.dark]])}
+}`;
+
+const cssSysCode = createCssSysCode(
+  cssTheme.sys.dark, cssTheme.sys.light
+) + cssColorSchemeCode;
+
 const tailwindTheme = getTailwindColorTheme<never>(theme);
 const tailwindCode = createTailwindCode(tailwindTheme);
 const write = writeFile(__dirname);
