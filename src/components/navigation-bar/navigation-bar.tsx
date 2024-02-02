@@ -18,6 +18,12 @@ export type NavigationBarLinkProps = TabProps & {
   onNavigate?: (path?: string) => void;
 };
 
+
+export type NavigationBarLinkContentProps = Pick<
+  NavigationBarLinkProps, 
+  'label' | 'badgeLabel' 
+> & { children?: React.ReactNode; isSelected: boolean; isHovered: boolean };
+
 export const NavigationBar = React.forwardRef<
   HTMLDivElement,
   NavigationBarProps
@@ -40,6 +46,61 @@ export const NavigationBar = React.forwardRef<
 
 NavigationBar.displayName = 'NavigationBar';
 
+export const NavigationBarLinkContent = React.forwardRef<
+  HTMLDivElement,
+  NavigationBarLinkContentProps
+>(({ label, badgeLabel, children, isSelected, isHovered }, ref) => {
+  return (
+    <div ref={ref}
+      className="
+        w-fit md:w-32 
+        px-0 py-4 
+        flex flex-col items-center justify-center gap-1
+      "
+    >
+      <div
+        className={cls(
+          `
+            relative 
+            rounded-full 
+            w-16 h-8 
+            flex items-center justify-center
+          `,
+          {
+            'bg-md-sys-color-secondary-container text-md-sys-color-on-secondary-container':
+          isSelected || isHovered
+          }
+        )}
+      >
+        {children}
+        <Maybe display={!!badgeLabel}>
+          <div
+            className="
+              absolute top-0 left-8 
+              rounded-full 
+              min-w-[22px] h-4
+              px-1 
+              flex items-center justify-center 
+              bg-md-sys-color-error 
+              text-[11px] leading-none tracking-[.045em] font-medium 
+              text-md-sys-color-on-error
+            "
+          >
+            {badgeLabel}
+          </div>
+        </Maybe>
+      </div>
+      <span
+        className="
+          text-xs text-md-sys-color-on-background leading-tight tracking-[.0416em]
+        "
+      >
+        {label}
+      </span>
+    </div>
+  );
+});
+
 export const NavigationBarLink = React.forwardRef<
   HTMLDivElement,
   NavigationBarLinkProps
@@ -59,43 +120,14 @@ export const NavigationBarLink = React.forwardRef<
           <a
             href={path ?? '#'}
             onClick={handleNavigate}
-            className="group flex w-fit md:w-32 flex-col items-center justify-center px-0 py-4 gap-1"
           >
-            <div
-              className={cls(
-                `
-                relative 
-                rounded-full 
-                w-16 h-8 
-                flex items-center justify-center
-              `,
-                {
-                  'bg-md-sys-color-secondary-container text-md-sys-color-on-secondary-container':
-                    values.isSelected || values.isHovered
-                }
-              )}
+            <NavigationBarLinkContent
+              label={label}
+              isSelected={values.isSelected}
+              isHovered={values.isHovered}
             >
               {typeof children === 'function' ? children(values) : children}
-              <Maybe display={!!badgeLabel}>
-                <div
-                  className="
-                  absolute top-0 left-8 
-                  rounded-full 
-                  min-w-[22px] h-4
-                  px-1 
-                  flex items-center justify-center 
-                  bg-md-sys-color-error 
-                  text-[11px] leading-none tracking-[.045em] font-medium 
-                  text-md-sys-color-on-error
-                "
-                >
-                  {badgeLabel}
-                </div>
-              </Maybe>
-            </div>
-            <span className="text-xs text-md-sys-color-on-background leading-tight tracking-[.0416em]">
-              {label}
-            </span>
+            </NavigationBarLinkContent>
           </a>
         )}
       </Tab>
