@@ -166,7 +166,13 @@ export const ListItemIcon = React.forwardRef<
     <Icon
       ref={ref}
       size={leading ? 'sm' : 'md'}
-      className={cls('text-md-sys-color-on-surface-variant', className)}
+      className={
+        cls(
+          'text-md-sys-color-on-surface-variant',
+          { 'ms-auto': trailing },
+          className
+        )
+      }
       {...props}
     ></Icon>
   );
