@@ -101,6 +101,8 @@ export const NavigationBarLinkContent = React.forwardRef<
   );
 });
 
+NavigationBarLinkContent.displayName = 'NavigationBarLinkContent';
+
 export const NavigationBarLink = React.forwardRef<
   HTMLDivElement,
   NavigationBarLinkProps
