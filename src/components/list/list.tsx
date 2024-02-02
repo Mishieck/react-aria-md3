@@ -8,15 +8,22 @@ import {
 } from 'react-aria-components';
 import { Icon, IconProps } from '../icon/icon';
 import { Text, TextProps } from '../text/text';
+import { cva } from 'class-variance-authority';
 
 export type ListProps = ListBoxProps<React.ReactElement> & {};
 export type ListItemType = 'text' | 'button' | 'link';
+export type ListItemLines = '1' | '2' | '3';
 
 export type ListItemProps = ListBoxItemProps &
   Partial<{
     type: ListItemType;
+    lines?: ListItemLines;
     disabled: boolean;
   }>;
+
+export type ListItemVariantProps = {
+  lines: Record<ListItemLines, string>
+}
 
 export type ListItemLabelProps = React.HTMLAttributes<HTMLSpanElement>;
 export type ListItemHeadlineProps = Omit<TextProps, 'scale'>;
@@ -57,12 +64,28 @@ export const List = React.forwardRef<HTMLDivElement, ListProps>(
 
 List.displayName = 'List';
 
+export const listItemVariantProps = cva<ListItemVariantProps>(
+  `px-[16px] flex items-center`,
+  {
+    variants: {
+      lines: {
+        1: 'h-[56px]',
+        2: 'h-[72px]',
+        3: 'h-[88px]'
+      }
+    },
+    defaultVariants: {
+      lines: '1'
+    }
+  }
+);
+
 export const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
-  ({ type, className, ...props }, ref) => {
+  ({ type, className, lines, ...props }, ref) => {
     return (
       <ListBoxItem
         ref={ref}
-        className={cls('flex items-center ', className)}
+        className={cls(listItemVariantProps({ lines }), className)}
         {...props}
       ></ListBoxItem>
     );
