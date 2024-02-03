@@ -7,7 +7,7 @@ import {
   type TabListProps
 } from 'react-aria-components';
 import { Maybe } from '../logical/Maybe';
-import { Elevation } from '../elevation/elevation';
+import { elevationVariantProps } from '../elevation/elevation';
 
 export type NavigationBarProps = TabListProps<React.ReactElement>;
 
@@ -34,22 +34,19 @@ export const NavigationBar = React.forwardRef<
       ref={ref}
       className={cls(
         `
-          relative
+          h-[80px]
           flex justify-between items-end
           scroll-smooth
+          bg-md-sys-color-surface-container
+          text-md-sys-color-on-surface-container
         `,
+        elevationVariantProps({ level: '2' }),
         className
       )}
       style={{ scrollbarWidth: 'none' }}
       {...props}
     >
-      {values => (
-        <>
-          {typeof children === 'function' ? children(values) : children}
-          <Elevation level={'2'} />
-        </>)
-      }
-      
+      {children}
     </TabList>
   );
 });
