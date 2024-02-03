@@ -15,7 +15,7 @@ export type ElevationVariantProps = {
   level: Record<ElevationLevel, string>;
 };
 
-const elevationVariantProps = cva<ElevationVariantProps>(
+export const elevationVariantProps = cva<ElevationVariantProps>(
   `
     before:content-[''] after:content-['']
     absolute before:absolute after:absolute
