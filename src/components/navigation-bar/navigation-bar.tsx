@@ -35,7 +35,7 @@ export const NavigationBar = React.forwardRef<
       className={cls(
         `
           h-[80px]
-          flex justify-between items-end
+          flex gap-[8px] 
           scroll-smooth
           bg-md-sys-color-surface-container
           text-md-sys-color-on-surface-container
@@ -60,7 +60,7 @@ export const NavigationBarLinkContent = React.forwardRef<
   return (
     <div ref={ref}
       className="
-        w-fit md:w-32 
+        min-w-[48px] h-full
         px-0 py-4 
         flex flex-col items-center justify-center gap-1
       "
@@ -124,10 +124,11 @@ export const NavigationBarLink = React.forwardRef<
     };
 
     return (
-      <Tab ref={ref} className={cls(`flex justify-between`)} {...props}>
+      <Tab ref={ref} className="h-full flex-1 grid place-items-center" {...props}>
         {values => (
           <a
             href={path ?? '#'}
+            className="h-full grid place-items-center"
             onClick={handleNavigate}
           >
             <NavigationBarLinkContent
