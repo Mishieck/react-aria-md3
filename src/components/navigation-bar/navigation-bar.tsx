@@ -7,6 +7,7 @@ import {
   type TabListProps
 } from 'react-aria-components';
 import { Maybe } from '../logical/Maybe';
+import { Elevation } from '../elevation/elevation';
 
 export type NavigationBarProps = TabListProps<React.ReactElement>;
 
@@ -27,12 +28,13 @@ export type NavigationBarLinkContentProps = Pick<
 export const NavigationBar = React.forwardRef<
   HTMLDivElement,
   NavigationBarProps
->(({ className, ...props }, ref) => {
+>(({ className, children, ...props }, ref) => {
   return (
     <TabList
       ref={ref}
       className={cls(
         `
+          relative
           flex justify-between items-end
           scroll-smooth
         `,
@@ -40,7 +42,15 @@ export const NavigationBar = React.forwardRef<
       )}
       style={{ scrollbarWidth: 'none' }}
       {...props}
-    />
+    >
+      {values => (
+        <>
+          {typeof children === 'function' ? children(values) : children}
+          <Elevation level={'2'} />
+        </>)
+      }
+      
+    </TabList>
   );
 });
 
