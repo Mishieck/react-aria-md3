@@ -9,16 +9,20 @@ import {
 import { Icon, IconProps } from '../icon/icon';
 import { Text, TextProps } from '../text/text';
 import { cva } from 'class-variance-authority';
+import { Any } from '../logical/Any';
 
 export type ListProps = ListBoxProps<React.ReactElement> & {};
 export type ListItemType = 'text' | 'button' | 'link';
 export type ListItemLines = '1' | '2' | '3';
 
-export type ListItemProps = ListBoxItemProps &
+export type ListItemProps = ListBoxItemProps & 
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> &
   Partial<{
     type: ListItemType;
     lines?: ListItemLines;
     disabled: boolean;
+    onClick?: (path?: string) => void;
+    preventDefault?: boolean;
   }>;
 
 export type ListItemVariantProps = {
@@ -80,14 +84,55 @@ export const listItemVariantProps = cva<ListItemVariantProps>(
   }
 );
 
+const listItemElementIndex: Record<ListItemType, number> = {
+  text: 0,
+  button: 1,
+  link: 2
+};
+
 export const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
-  ({ type, className, lines, ...props }, ref) => {
+  ({ type = 'text', children, className, lines, href, target, onClick, ...props }, ref) => {
+    const handleClick: React.MouseEventHandler = (event) => {
+      event.preventDefault();
+      onClick && onClick(href);
+    };
+
     return (
       <ListBoxItem
         ref={ref}
-        className={cls(listItemVariantProps({ lines }), className)}
         {...props}
-      ></ListBoxItem>
+      >
+        { values => {
+          const childrenElement = typeof children === 'function' 
+            ? children(values) 
+            : children;
+
+          return (
+            <Any display={listItemElementIndex[type]}>
+              <div 
+                className={cls(listItemVariantProps({ lines }), className)}
+                onClick={handleClick}
+              >
+                {childrenElement}
+              </div>
+              <button 
+                className={cls(listItemVariantProps({ lines }), className)} 
+                onClick={handleClick}
+              >
+                {childrenElement}
+              </button>
+              <a 
+                href={href} 
+                target={target} 
+                className={cls(listItemVariantProps({ lines }), className)}
+                onClick={handleClick}
+              >
+                {childrenElement}
+              </a>
+            </Any>
+          );
+        }}
+      </ListBoxItem>
     );
   }
 );
