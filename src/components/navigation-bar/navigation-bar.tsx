@@ -41,6 +41,7 @@ export const NavigationBar = React.forwardRef<
           text-md-sys-color-on-surface-container
         `,
         elevationVariantProps({ level: '2' }),
+        'relative inset-auto',
         className
       )}
       style={{ scrollbarWidth: 'none' }}
