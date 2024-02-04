@@ -63,7 +63,8 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(
             'bg-md-sys-color-surface':
               'lowered' in props ? props.lowered : false,
             hidden: noTouchTarget
-          }
+          },
+          className
         )}
         style={{ WebkitTapHighlightColor: 'transparent' }}
         {...rest}
