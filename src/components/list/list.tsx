@@ -91,9 +91,19 @@ const listItemElementIndex: Record<ListItemType, number> = {
 };
 
 export const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
-  ({ type = 'text', children, className, lines, href, target, onClick, ...props }, ref) => {
+  ({ 
+    type = 'text', 
+    children, 
+    className, 
+    lines, 
+    href, 
+    target,
+    preventDefault,
+    onClick, 
+    ...props
+  }, ref) => {
     const handleClick: React.MouseEventHandler = (event) => {
-      event.preventDefault();
+      preventDefault && event.preventDefault();
       onClick && onClick(href);
     };
 
