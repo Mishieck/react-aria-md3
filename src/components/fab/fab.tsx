@@ -50,45 +50,46 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(
     };
 
     return (
-      <Button
-        ref={ref}
-        className={cls(
-          '',
-          fabVariantProps(fabVariantBooleanProps)({
-            size,
-            color
-          }),
-          {
-            // TODO: Use 'bg-md-sys-color-surface-container-low' instead
-            'bg-md-sys-color-surface':
+      <div className={cls('p-4', className)}>
+        <Button
+          ref={ref}
+          className={cls(
+            '',
+            fabVariantProps(fabVariantBooleanProps)({
+              size,
+              color
+            }),
+            {
+              // TODO: Use 'bg-md-sys-color-surface-container-low' instead
+              'bg-md-sys-color-surface':
               'lowered' in props ? props.lowered : false,
-            hidden: noTouchTarget
-          },
-          className
-        )}
-        style={{ WebkitTapHighlightColor: 'transparent' }}
-        {...rest}
-      >
-        {({ isHovered }) => (
-          <>
-            {children}
-            <Ripple className="-z-10" />
-            <Elevation
-              className="-z-10"
-              level={
-                (isHovered ? fabStateElevationLevels : fabElevationLevels)[size]
-              }
-            />
-            <div
-              className="
+              hidden: noTouchTarget
+            }
+          )}
+          style={{ WebkitTapHighlightColor: 'transparent' }}
+          {...rest}
+        >
+          {({ isHovered }) => (
+            <>
+              {children}
+              <Ripple className="-z-10" />
+              <Elevation
+                className="-z-10"
+                level={
+                  (isHovered ? fabStateElevationLevels : fabElevationLevels)[size]
+                }
+              />
+              <div
+                className="
                 absolute top-1/2 left-1/2 
                 w-[48px] aspect-square 
                 -translate-x-1/2 -translate-y-1/2
-              "
-            ></div>
-          </>
-        )}
-      </Button>
+                "
+              ></div>
+            </>
+          )}
+        </Button>
+      </div>
     );
   }
 );
