@@ -40,7 +40,6 @@ export const NavigationBar = React.forwardRef<
           bg-md-sys-color-surface-container
           text-md-sys-color-on-surface-container
         `,
-        elevationVariantProps({ level: '2' }),
         'relative inset-auto',
         className
       )}
