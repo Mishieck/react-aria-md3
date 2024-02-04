@@ -18,7 +18,7 @@ export type ElevationVariantProps = {
 export const elevationVariantProps = cva<ElevationVariantProps>(
   `
     before:content-[''] after:content-['']
-    absolute before:absolute after:absolute
+    absolute before:absolute after:absolute before:-z-10 after:-z-10
     before:shadow-md-sys-color-shadow after:shadow-md-sys-color-shadow 
     rounded-[inherit] before:rounded-[inherit] after:rounded-[inherit] 
     inset-0 before:inset-0 after:inset-0 
