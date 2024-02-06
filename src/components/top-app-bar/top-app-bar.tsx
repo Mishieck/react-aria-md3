@@ -19,7 +19,12 @@ export const TopAppBar = React.forwardRef<HTMLDivElement, TopAppBarProps>(
       <div
         ref={ref}
         className={cls(
-          `w-full h-16 flex flex-row items-center justify-between gap-1.5`,
+          `
+            w-full h-16
+            flex flex-row items-center justify-between gap-1.5
+            bg-md-sys-color-surface
+            text-md-sys-color-on-surface
+          `,
           className
         )}
         {...props}
