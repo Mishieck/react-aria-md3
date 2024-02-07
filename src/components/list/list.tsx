@@ -205,7 +205,7 @@ export const ListItemTrailingSupportingText = React.forwardRef<
     <span
       ref={ref}
       // TODO: Add 'text-md-sys-typescale-label-small-font'
-      className={cls('', className)}
+      className={cls('ms-[16px]', className)}
       {...props}
     ></span>
   );
@@ -225,6 +225,7 @@ export const ListItemIcon = React.forwardRef<
         cls(
           'text-md-sys-color-on-surface-variant',
           { 'ms-auto': trailing },
+          { 'me-[16px': leading, 'ms-[16px]': trailing },
           className
         )
       }
@@ -238,7 +239,7 @@ ListItemIcon.displayName = 'ListItemIcon';
 export const ListItemAvatar = React.forwardRef<
   HTMLSpanElement,
   ListItemAvatarProps
->(({ className, leading, trailing, ...props }, ref) => {
+>(({ className, leading = true, trailing = false, ...props }, ref) => {
   return (
     <span
       ref={ref}
@@ -251,6 +252,7 @@ export const ListItemAvatar = React.forwardRef<
           bg-md-sys-color-primary-container 
           text-md-sys-color-on-primary-container
         `,
+        { 'me-[16px': leading, 'ms-[16px]': trailing },
         className
       )}
       {...props}
@@ -263,11 +265,15 @@ ListItemAvatar.displayName = 'ListItemAvatar';
 export const ListItemImage = React.forwardRef<
   HTMLSpanElement,
   ListItemImageProps
->(({ className, leading, trailing, ...props }, ref) => {
+>(({ className, leading = true, trailing = false, ...props }, ref) => {
   return (
     <span
       ref={ref}
-      className={cls(`w-[56px] h-[56px]`, className)}
+      className={cls(
+        `w-[56px] h-[56px]`,
+        { 'me-[16px': leading, 'ms-[16px]': trailing },
+        className
+      )}
       {...props}
     ></span>
   );
