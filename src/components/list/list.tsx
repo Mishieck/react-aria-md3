@@ -110,7 +110,6 @@ export const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     return (
       <ListBoxItem
         ref={ref}
-        {...props}
       >
         { values => {
           const childrenElement = typeof children === 'function' 
