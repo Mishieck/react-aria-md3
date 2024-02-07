@@ -15,8 +15,8 @@ export type ListProps = ListBoxProps<React.ReactElement> & {};
 export type ListItemType = 'text' | 'button' | 'link';
 export type ListItemLines = '1' | '2' | '3';
 
-export type ListItemProps = ListBoxItemProps & 
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> &
+export type ListItemProps = Pick<ListBoxItemProps, 'children' | 'href' | 'target'> & 
+  Omit<React.HTMLAttributes<HTMLElement>, 'onClick'> &
   Partial<{
     type: ListItemType;
     lines?: ListItemLines;
@@ -121,12 +121,14 @@ export const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
             <Any display={listItemElementIndex[type]}>
               <div 
                 className={cls(listItemVariantProps({ lines }), className)}
+                {...props}
                 onClick={handleClick}
               >
                 {childrenElement}
               </div>
               <button 
                 className={cls(listItemVariantProps({ lines }), className)} 
+                {...props}
                 onClick={handleClick}
               >
                 {childrenElement}
@@ -135,6 +137,7 @@ export const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
                 href={href} 
                 target={target} 
                 className={cls(listItemVariantProps({ lines }), className)}
+                {...props}
                 onClick={handleClick}
               >
                 {childrenElement}
