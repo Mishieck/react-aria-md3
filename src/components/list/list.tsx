@@ -225,7 +225,7 @@ export const ListItemIcon = React.forwardRef<
         cls(
           'text-md-sys-color-on-surface-variant',
           { 'ms-auto': trailing },
-          { 'me-[16px': leading, 'ms-[16px]': trailing },
+          { 'me-[16px]': leading, 'ms-[16px]': trailing },
           className
         )
       }
@@ -252,7 +252,7 @@ export const ListItemAvatar = React.forwardRef<
           bg-md-sys-color-primary-container 
           text-md-sys-color-on-primary-container
         `,
-        { 'me-[16px': leading, 'ms-[16px]': trailing },
+        { 'me-[16px]': leading, 'ms-[16px]': trailing },
         className
       )}
       {...props}
@@ -271,7 +271,7 @@ export const ListItemImage = React.forwardRef<
       ref={ref}
       className={cls(
         `w-[56px] h-[56px]`,
-        { 'me-[16px': leading, 'ms-[16px]': trailing },
+        { 'me-[16px]': leading, 'ms-[16px]': trailing },
         className
       )}
       {...props}
