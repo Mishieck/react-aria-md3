@@ -239,7 +239,7 @@ ListItemIcon.displayName = 'ListItemIcon';
 export const ListItemAvatar = React.forwardRef<
   HTMLSpanElement,
   ListItemAvatarProps
->(({ className, leading = true, trailing = false, ...props }, ref) => {
+>(({ className, leading, trailing, ...props }, ref) => {
   return (
     <span
       ref={ref}
@@ -265,7 +265,7 @@ ListItemAvatar.displayName = 'ListItemAvatar';
 export const ListItemImage = React.forwardRef<
   HTMLSpanElement,
   ListItemImageProps
->(({ className, leading = true, trailing = false, ...props }, ref) => {
+>(({ className, leading, trailing, ...props }, ref) => {
   return (
     <span
       ref={ref}
