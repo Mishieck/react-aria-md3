@@ -69,7 +69,7 @@ export const List = React.forwardRef<HTMLDivElement, ListProps>(
 List.displayName = 'List';
 
 export const listItemVariantProps = cva<ListItemVariantProps>(
-  `w-full px-[16px] flex items-center`,
+  `w-full px-[16px] flex items-center text-start`,
   {
     variants: {
       lines: {
