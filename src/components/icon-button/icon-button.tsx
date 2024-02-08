@@ -55,7 +55,7 @@ export type IconButtonProps = RacButtonProps &
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
-    const { container, shape, icon, className, children, ...rest } = props;
+    const { container = 'default', shape, icon, className, children, ...rest } = props;
     const hasNamedIcon = !!icon;
 
     return (
