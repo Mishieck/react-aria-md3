@@ -47,9 +47,9 @@ export const buttonVariants = cva<IconButtonVariantProps>(
 
 export type IconButtonProps = RacButtonProps &
   Partial<{
-    container?: IconButtonContainerVariant;
-    shape?: ContainerShape;
-    icon?: MdIconName;
+    container: IconButtonContainerVariant;
+    shape: ContainerShape;
+    icon: MdIconName;
   }> &
   VariantProps<typeof buttonVariants>;
 
