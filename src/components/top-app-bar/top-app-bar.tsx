@@ -21,7 +21,7 @@ export const TopAppBar = React.forwardRef<HTMLDivElement, TopAppBarProps>(
         className={cls(
           `
             w-full h-16
-            flex flex-row items-center justify-between gap-1.5
+            flex flex-row items-center gap-1.5
             bg-md-sys-color-surface
             text-md-sys-color-on-surface
           `,
@@ -39,7 +39,7 @@ export const TopAppBarHeadline = React.forwardRef<
   HTMLElement,
   TopAppBarHeadlineProps
 >((props, ref) => {
-  return <Text ref={ref} scale="headline" {...props} />;
+  return <Text ref={ref} scale="headline" className="flex-1" {...props} />;
 });
 
 TopAppBarHeadline.displayName = 'TopAppBarHeadline';
@@ -93,7 +93,7 @@ export const TopAppBarToolbar = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cls(`flex flex-row justify-end items-center`, className)}
+      className={cls(`ms-auto flex flex-row justify-end items-center`, className)}
       {...props}
     ></div>
   );
