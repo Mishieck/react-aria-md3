@@ -39,7 +39,14 @@ export const TopAppBarHeadline = React.forwardRef<
   HTMLElement,
   TopAppBarHeadlineProps
 >((props, ref) => {
-  return <Text ref={ref} scale="headline" className="flex-1" {...props} />;
+  return (
+    <Text
+      ref={ref} 
+      scale="headline" 
+      className="whitespace-nowrap overflow-ellipsis flex-1" 
+      {...props} 
+    />
+  );
 });
 
 TopAppBarHeadline.displayName = 'TopAppBarHeadline';
