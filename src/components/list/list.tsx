@@ -159,7 +159,10 @@ export const ListItemLabel = React.forwardRef<
     <span
       ref={ref}
       // TODO: Add 'text-md-sys-typescale-label-large-font'
-      className={cls('text-md-sys-color-on-surface', className)}
+      className={cls(
+        `whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface`,
+        className
+      )}
       {...props}
     ></span>
   );
@@ -175,7 +178,10 @@ export const ListItemHeadline = React.forwardRef<
     <Text
       ref={ref}
       scale="headline"
-      className={cls('text-md-sys-color-on-surface', className)}
+      className={cls(
+        `whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface`,
+        className
+      )}
       {...props}
     ></Text>
   );
@@ -191,7 +197,10 @@ export const ListItemSupportingText = React.forwardRef<
     <span
       ref={ref}
       // TODO: Add 'text-md-sys-typescale-body-medium-font'
-      className={cls('text-md-sys-color-on-surface-variant', className)}
+      className={cls(
+        `whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface-variant`,
+        className
+      )}
       {...props}
     ></span>
   );
@@ -207,7 +216,7 @@ export const ListItemTrailingSupportingText = React.forwardRef<
     <span
       ref={ref}
       // TODO: Add 'text-md-sys-typescale-label-small-font'
-      className={cls('ms-[16px]', className)}
+      className={cls('ms-[16px] whitespace-nowrap overflow-ellipsis', className)}
       {...props}
     ></span>
   );
