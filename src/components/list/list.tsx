@@ -160,7 +160,10 @@ export const ListItemLabel = React.forwardRef<
       ref={ref}
       // TODO: Add 'text-md-sys-typescale-label-large-font'
       className={cls(
-        `whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface`,
+        `
+          overflow-hidden 
+          whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface
+        `,
         className
       )}
       {...props}
@@ -179,7 +182,10 @@ export const ListItemHeadline = React.forwardRef<
       ref={ref}
       scale="headline"
       className={cls(
-        `whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface`,
+        `
+          overflow-hidden 
+          whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface
+        `,
         className
       )}
       {...props}
@@ -198,7 +204,10 @@ export const ListItemSupportingText = React.forwardRef<
       ref={ref}
       // TODO: Add 'text-md-sys-typescale-body-medium-font'
       className={cls(
-        `whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface-variant`,
+        `
+          overflow-hidden 
+          whitespace-nowrap overflow-ellipsis text-md-sys-color-on-surface-variant
+        `,
         className
       )}
       {...props}
@@ -216,7 +225,14 @@ export const ListItemTrailingSupportingText = React.forwardRef<
     <span
       ref={ref}
       // TODO: Add 'text-md-sys-typescale-label-small-font'
-      className={cls('ms-[16px] whitespace-nowrap overflow-ellipsis', className)}
+      className={cls(
+        `
+          ms-[16px] 
+          overflow-hidden 
+          whitespace-nowrap overflow-ellipsis
+        `, 
+        className
+      )}
       {...props}
     ></span>
   );
@@ -234,7 +250,7 @@ export const ListItemIcon = React.forwardRef<
       size={leading ? 'sm' : 'md'}
       className={
         cls(
-          'text-md-sys-color-on-surface-variant',
+          `text-md-sys-color-on-surface-variant`,
           { 'ms-auto': trailing },
           { 'me-[16px]': leading, 'ms-[16px]': trailing },
           className

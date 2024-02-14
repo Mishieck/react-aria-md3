@@ -43,7 +43,7 @@ export const TopAppBarHeadline = React.forwardRef<
     <Text
       ref={ref} 
       scale="headline" 
-      className="whitespace-nowrap overflow-ellipsis flex-1" 
+      className="overflow-hidden whitespace-nowrap overflow-ellipsis flex-1" 
       {...props} 
     />
   );
